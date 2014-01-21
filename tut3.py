@@ -34,7 +34,7 @@ while running:
     elif event.type == pygame.MOUSEBUTTONDOWN:
 
 	#ok, we're just copying the previous line draw and changing the color
-	#to the background color to 'get rid' of the line
+	#to the background color to destroy the previous crosshairs 
         pygame.draw.line(screen, bgcolor, ((x + 5), y), ((x + 5), (y + 10)))
 	pygame.draw.line(screen, bgcolor, (x, (y + 5)), ((x + 10), (y + 5)))
 	
