@@ -28,7 +28,8 @@ screen.fill(bgcolor)
 #or the crosshairs need to be inside the lines because destroying the
 #crosshairs is overwriting the gridlines
 
-#this isn't right....can't I do width and then gridsize with a step for gridsize?
+#create the grid
+#FIXME there's something off with the crosshairs vs the line
 for i in xrange (1, width, module_width): 
     pygame.draw.line(screen, gridline_color, (i, 1), (i, height))
     pygame.draw.line(screen, gridline_color, (1, i), (width, i))
