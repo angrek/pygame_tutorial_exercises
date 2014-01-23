@@ -1,5 +1,7 @@
 #!c:/Python27/python.exe
 
+#3.7b - adding actual gridlines
+
 import pygame
 import math
 
@@ -9,6 +11,9 @@ height = 400
 bgcolor = 0, 150, 0
 line_color = 0, 23, 200
 gridline_color = 45, 45, 45
+
+#I had to look this up. The individual spaces between grid lines are called modules
+module_width = 20
 
 #initializing these since we're doing the redraw before they coords exist the first time
 x = 0
@@ -23,8 +28,14 @@ screen.fill(bgcolor)
 #or the crosshairs need to be inside the lines because destroying the
 #crosshairs is overwriting the gridlines
 
-pygame.draw.line(screen, gridline_color, (10, 1), (10, 400))
-pygame.draw.line(screen, gridline_color, (20, 1), (20, 400))
+#this isn't right....can't I do width and then gridsize with a step for gridsize?
+for i in xrange (1, width, module_width): 
+    pygame.draw.line(screen, gridline_color, (i, 1), (i, height))
+    pygame.draw.line(screen, gridline_color, (1, i), (width, i))
+
+
+#pygame.draw.line(screen, gridline_color, (10, 1), (10, 400))
+#pygame.draw.line(screen, gridline_color, (20, 1), (20, 400))
 
 while running:
     #this  activates the window close X button
