@@ -1,5 +1,9 @@
 #!c:/Python27/python.exe
 
+#3.6 - setting grid squares and drawing a crosshairs into the grid
+#wherever click is detected.
+
+
 import pygame
 import math
 
