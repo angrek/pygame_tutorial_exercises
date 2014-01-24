@@ -53,8 +53,8 @@ while running:
 	#we're going to divide this into 10 px grid squares.
 	#this should give us 40 wide and 40 down
 	x, y = event.pos
-	x = int(math.ceil(x / 10.0)) 
-	y = int(math.ceil(y / 10.0))
+	x = int(math.ceil(x / 20.0)) 
+	y = int(math.ceil(y / 20.0))
 
 	#just printing out the coords to the console
         print "mouse at (%d, %d)" % event.pos
@@ -70,8 +70,9 @@ while running:
 	y = (y * 10) - 10
 
 	#offset the cursor location to center the crosshair in the grid box
-        pygame.draw.line(screen, line_color, ((x + 5), y), ((x + 5), (y + 10)))
-	pygame.draw.line(screen, line_color, (x, (y + 5)), ((x + 10), (y + 5)))
+	#FIXME I done broked it putting module_width in here....
+        pygame.draw.line(screen, line_color, ((x + (module_width / 2), y), ((x + (module_width / 2)), (y + module_width)))
+	pygame.draw.line(screen, line_color, (x, (y + (module_width / 2))), ((x + module_width), (y + (module_width / 2))))
 
     pygame.display.flip()
     #note that having back to back flips makes it flicker
