@@ -50,7 +50,7 @@ while running:
         pygame.draw.line(screen, bgcolor, ((x + 5), y), ((x + 5), (y + 10)))
 	pygame.draw.line(screen, bgcolor, (x, (y + 5)), ((x + 10), (y + 5)))
 	
-	#we're going to divide this into 10 px grid squares.
+	#we're going to divide this into 20 px grid squares.
 	#this should give us 40 wide and 40 down
 	x, y = event.pos
 	x = int(math.ceil(x / 20.0)) 
@@ -66,12 +66,11 @@ while running:
 	#I probably could have combined below with the above stuff, but
 	#this allowed me to print everything to the console to see what 
 	#I was doing better
-	x = (x * 10) - 10
-	y = (y * 10) - 10
+	x = (x * module_width) - module_width
+	y = (y * module_width) - module_width 
 
 	#offset the cursor location to center the crosshair in the grid box
-	#FIXME I done broked it putting module_width in here....
-        pygame.draw.line(screen, line_color, ((x + (module_width / 2), y), ((x + (module_width / 2)), (y + module_width)))
+        pygame.draw.line(screen, line_color, ((x + (module_width / 2)), y), ((x + (module_width / 2)), (y + module_width)))
 	pygame.draw.line(screen, line_color, (x, (y + (module_width / 2))), ((x + module_width), (y + (module_width / 2))))
 
     pygame.display.flip()
