@@ -6,14 +6,18 @@ import pygame
 import math
 
 running = 1
-width = 400 
-height = 400
 bgcolor = 0, 150, 0
 line_color = 0, 23, 200
 gridline_color = 45, 45, 45
 
 #I had to look this up. The individual spaces between grid lines are called modules
 module_width = 20
+
+#number of modules across AND down
+number_of_modules = 20
+height = number_of_modules * module_width
+width = number_of_modules * module_width
+
 
 #initializing these since we're doing the redraw before they coords exist the first time
 x = 0
