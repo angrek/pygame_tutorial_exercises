@@ -1,12 +1,21 @@
 #!c:/Python27/python.exe
 
-#3.7b - adding actual gridlines
+#Working on building a grid system to place tiles on as
+# an exercise. I'll build it further but for now  I'm just 
+# working on getting the basics in place.
+
 
 import pygame
 import math
 
+#coords
+x = 0
+y = 0
+
 running = 1
 bgcolor = 0, 150, 0
+
+#line_color is just my temp color for the crosshairs. It will probably be removed eventually.
 line_color = 0, 23, 200
 gridline_color = 45, 45, 45
 
@@ -17,11 +26,6 @@ module_width = 20
 number_of_modules = 20
 height = number_of_modules * module_width
 width = number_of_modules * module_width
-
-
-#initializing these since we're doing the redraw before they coords exist the first time
-x = 0
-y = 0
 
 screen = pygame.display.set_mode((width, height))
 
@@ -60,7 +64,7 @@ while running:
 	x = int(math.ceil(x / 20.0)) 
 	y = int(math.ceil(y / 20.0))
 
-	#just printing out the coords to the console
+	#just printing out the coords to the console for error checking
         print "mouse at (%d, %d)" % event.pos
 	print "grid square: " + str(x) + " - " + str(y)
 
