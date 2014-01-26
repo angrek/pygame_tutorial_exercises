@@ -55,6 +55,7 @@ while running:
 
 	#ok, we're just copying the previous line draw and changing the color
 	#to the background color to destroy the previous crosshairs 
+	#vertical then horizontal
         pygame.draw.line(screen, bgcolor, ((x + (module_width / 2)), y), ((x + (module_width / 2)), (y + module_width)))
 	pygame.draw.line(screen, bgcolor, (x, (y + (module_width / 2))), ((x + module_width), (y + (module_width / 2))))
 	
