@@ -1,6 +1,9 @@
 #!c:/Python27/python.exe
 
 #Move a single pixel around the screen without crashing against the borders
+#5.7 we left a trail like an etch a sketch
+#5.8 we're going to make it a worm and only keep a set number of the pixels
+#6.1 We're going to set it so the worm can't run into itself
 
 import pygame
 
@@ -14,6 +17,8 @@ DOWN_RIGHT = (1, 1)
 LEFT = (-1, 0)
 RIGHT = (1, 0)
 
+flag = 0
+
 class MovingPixel:
     """ A moving pixel class. """
 
@@ -23,6 +28,14 @@ class MovingPixel:
         self.y = y
         self.hdir = 0
         self.vdir = -1
+	#we're going to make the worm length here. This will write
+	#the number of worm pixels at the starting pixel and it will
+	#be populated and popped out as new pixel moves go on
+	self.worm_length = 25
+	self.temp_list = [width/2, height/2]
+	self.matrix = []
+	for nums in range(self.worm_length):
+	    self.matrix.append(self.temp_list)
 
     def direction(self, dir):
         """ Chances the pixels direction. """
@@ -34,7 +47,17 @@ class MovingPixel:
         self.y += self.vdir
 
     def draw(self, surface):
-        surface.set_at((self.x, self.y), (255, 255, 255))
+	self.my_list = [self.x, self.y]
+	#we're leaving a trail here so we're making a list of coords
+	self.matrix.append(self.my_list)
+	#to make the worm we'll remove one from the beginning
+	self.matrix.remove(self.matrix[0])
+	for coords in self.matrix:
+	    surface.set_at((coords[0], coords[1]), (255, 255, 255))
+	self.matrix2 = self.matrix
+	#self.matrix2.remove(self.matrix[self.worm_length-2])
+	#if self.matrix[int(self.worm_length-1)] in self.matrix2:
+	#   flag = 1
 
 #window dimentions
 width = 640
@@ -80,7 +103,7 @@ while running:
                 pix.direction(DOWN_RIGHT)
     
     pygame.display.flip()
-    clock.tick(120)
+    clock.tick(18)
 
 
 
