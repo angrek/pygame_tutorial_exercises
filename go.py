@@ -1,8 +1,9 @@
 #!c:/Python27/python.exe
 
-#Working on building a grid system to place tiles on as
-# an exercise. I'll build it further but for now  I'm just 
-# working on getting the basics in place.
+# Working on building a grid system to place tiles on in the spirit
+# of scrabble or wwf type games. The goal is to create a word type
+# game checker where I can put in the word I played and see where the
+# word ranks in possible words that I could have played.
 
 
 import pygame
@@ -24,6 +25,7 @@ module_width = 20
 
 #number of modules across AND down
 number_of_modules = 20
+
 height = number_of_modules * module_width
 width = number_of_modules * module_width
 
@@ -37,7 +39,6 @@ screen.fill(bgcolor)
 #crosshairs is overwriting the gridlines
 
 #create the grid
-#FIXME there's something off with the crosshairs vs the line
 for i in xrange (1, width, module_width): 
     pygame.draw.line(screen, gridline_color, (i, 1), (i, height))
     pygame.draw.line(screen, gridline_color, (1, i), (width, i))
@@ -75,8 +76,8 @@ while running:
 	#I probably could have combined below with the above stuff, but
 	#this allowed me to print everything to the console to see what 
 	#I was doing better
-	x = (x * module_width) - module_width
-	y = (y * module_width) - module_width 
+	x = (x * module_width) - module_width + 1
+	y = (y * module_width) - module_width + 1 
 
 	#offset the cursor location to center the crosshair in the grid box
         pygame.draw.line(screen, line_color, ((x + (module_width / 2)), y), ((x + (module_width / 2)), (y + module_width)))
