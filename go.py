@@ -80,8 +80,8 @@ while running:
 	y = (y * module_width) - module_width + 1 
 
 	#offset the cursor location to center the crosshair in the grid box
-        pygame.draw.line(screen, line_color, ((x + (module_width / 2)), y), ((x + (module_width / 2)), (y + module_width)))
-	pygame.draw.line(screen, line_color, (x, (y + (module_width / 2))), ((x + module_width), (y + (module_width / 2))))
+        pygame.draw.line(screen, line_color, ((x + (module_width / 2)), (y + 1)), ((x + (module_width / 2)), (y + module_width - 1 )))
+	pygame.draw.line(screen, line_color, ((x + 1), (y + (module_width / 2))), ((x + module_width - 1), (y + (module_width / 2))))
 
     pygame.display.flip()
     #note that having back to back flips makes it flicker

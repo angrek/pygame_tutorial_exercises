@@ -1,5 +1,10 @@
 TODO for the go.py game
 
--The crosshairs are leaving a small line on the gridlines
+FIXME
 -Need to create a function to capture the letter input from the keyboard
 -After keyboard, maybe a choice/option for popup letter selections
+
+
+
+Fixed
+-The crosshairs are leaving a small line on the gridline
